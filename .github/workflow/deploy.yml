@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+    branches: 
+      - dev
+      - master
+  workflow_dispatch:  # Manually trigger the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js (modify if you're using a different environment)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run build (this compiles your application)
+      - name: Build the app
+        run: npm run build
+
+      # Step 5: Check if the build was successful
+      - name: Check build success
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Build failed: dist folder not found."
+            exit 1
+          fi
+          echo "Build succeeded: dist folder exists."
+
+      # Step 6: Run tests (unit tests, integration tests, etc.)
+      - name: Run tests
+        run: npm test
+
+      # Step 7: (Optional) Lint the code
+      - name: Lint the code
+        run: npm run lint
+
+      # Step 8: (Optional) Format the code
+      - name: Format code
+        run: npm run format
+
+      # Step 9: (Optional) Deploy if everything is successful
+      # - name: Deploy to server
+      #   run: ./deploy-script.sh

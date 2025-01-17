@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title='Introduction' />
+
+# Welcome to Storybook
+
+Storybook is a UI component development tool that allows developers to build, test, and document components in isolation. This helps create robust, reusable components for your React project.
+
+---
+
+## What is Storybook?
+
+Storybook is a playground for UI components. It helps you:
+
+- **Visualize components in isolation** from the rest of the application.
+- **Document components** with examples, props, and usage notes.
+- **Test components** visually, functionally, and for accessibility.
+
+With Storybook, you can explore how your components behave under different conditions without needing to launch your full app.
+
+---
+
+## How to Use This Storybook
+
+1. **Navigate Components**: Use the sidebar on the left to explore all the components in this project.
+2. **Interact with Controls**: Many components have configurable options (called controls). You can adjust these controls in the "Controls" panel to see how the component behaves.
+3. **Switch Themes or Backgrounds**: Use the toolbar at the top to toggle between themes, backgrounds, and viewport sizes.
+4. **Read the Documentation**: Each story contains detailed documentation about the component's purpose, usage, and behavior.
+
+---
+
+## Key Features of This Storybook
+
+- **Responsive Testing**: View components on different screen sizes.
+- **Themes**: Preview components with light and dark modes.
+- **Actions**: Test event handlers using the action logger.
+- **Accessibility Testing**: Verify compliance with accessibility standards using Storybook's a11y tool.
+
+---
+
+## Structure of Stories
+
+- **Components**: These are the reusable building blocks of the UI.
+- **Stories**: These showcase components in various states or configurations.
+- **Docs**: These provide detailed information about the component, its props, and usage.
+
+---
+
+## Getting Started with Components
+
+To create or update a component:
+
+1. Add your React component file to the appropriate directory.
+2. Create a corresponding `.stories.tsx` file in the same directory.
+3. Write stories to showcase different states and use cases of the component.
+
+Example:
+
+```tsx
+export const Primary = {
+  args: {
+    label: 'Primary Button',
+    className: 'btn btn-primary',
+  },
+}
+```
